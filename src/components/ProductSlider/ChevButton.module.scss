@@ -1,0 +1,34 @@
+// Circular chevron control
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.chevButton {
+  @include button-reset;
+  @include flex-center;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 2px solid $gray-medium;
+  background: transparent;
+  color: $gray-medium;
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    background-color .2s ease;
+
+  &:hover { color: $gray-dark; border-color: $gray-dark; }
+
+  &.active {
+    background: $black;
+    color: $white;
+    border-color: $black;
+
+    .chevIcon { transform: rotate(90deg); }
+  }
+}
+
+.chevIcon { transition: transform .2s ease; }

@@ -1,0 +1,112 @@
+// Styles for SEO content - visually hidden but available to search engines
+
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.seoContainer {
+  @include visually-hidden;
+}
+
+.pageTitle {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+}
+
+.productsCopy {
+  margin-bottom: $spacing-xl;
+}
+
+.productCopy {
+  margin-bottom: $spacing-lg;
+  
+  // Remove .hidden and .active since we're using .visually-hidden utility
+  &.active {
+    // Keep active products visible within the hidden SEO container
+    position: relative;
+  }
+}
+
+.productTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+}
+
+.productMeta {
+  margin-bottom: $spacing-md;
+  
+  span {
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+}
+
+.productPrice,
+.productCategory,
+.productRating {
+  font-size: $font-size-sm;
+}
+
+.productDescription {
+  margin-bottom: $spacing-md;
+  
+  h4 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    font-size: $font-size-sm;
+    line-height: 1.6;
+  }
+}
+
+.productKeywords {
+  font-size: $font-size-xs;
+  color: $gray-medium;
+}
+
+.additionalSeoContent {
+  margin-top: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $gray-dark;
+}
+
+.additionalContent {
+  h2 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+  }
+  
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+    margin-top: $spacing-md;
+  }
+  
+  p {
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+  }
+  
+  ul {
+    padding-left: $spacing-lg;
+    
+    li {
+      font-size: $font-size-sm;
+      line-height: 1.6;
+      margin-bottom: $spacing-xs;
+    }
+  }
+}

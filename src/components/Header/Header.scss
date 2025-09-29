@@ -1,0 +1,79 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+  background: #f7f7f9; /* soft light instead of white */
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  backdrop-filter: saturate(1.2) blur(4px);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-sm $spacing-md;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.brand {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-lg;
+}
+
+.link {
+  color: $black;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  &:hover { color: $primary; }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.iconBtn {
+  @include button-reset;
+  @include flex-center;
+  width: 36px; height: 36px;
+  border-radius: $border-radius-full;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  color: #222;
+  &:hover { border-color: rgba(0,0,0,.3); }
+}
+
+.searchWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search {
+  padding: 8px 32px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  min-width: 180px;
+  font-size: $font-size-sm;
+}
+
+.icon {
+  position: absolute;
+  right: 8px; 
+  color: #666;
+}

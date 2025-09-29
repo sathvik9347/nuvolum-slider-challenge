@@ -1,0 +1,106 @@
+/* src/components/ProductDetails/ProductDetails.module.scss */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.detailsPanel {
+  background-color: $white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.detailsContent {
+  padding: clamp(#{$spacing-lg}, 2vw, #{$spacing-2xl});
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.emptyState {
+  @include flex-center;
+  min-height: 320px;
+  color: $gray-medium;
+  font-style: italic;
+}
+
+.detailsHeader { display: flex; flex-direction: column; gap: $spacing-md; }
+
+.productTitle {
+  margin: 0;
+  line-height: 1.25;
+  font-weight: $font-weight-bold;
+  font-size: clamp(1.25rem, 0.9rem + 1.6vw, 1.75rem);
+  color: $black;
+}
+
+/* Price + stars on one row (stack on small screens if needed) */
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+  font-weight: $font-weight-bold;
+  color: $black;
+}
+
+/* —— Stars —— */
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.starFilled,
+.starEmpty {
+  font-size: 18px;
+  line-height: 1;
+}
+.starFilled { color: #fbbf24; }      /* gold */
+.starEmpty  { color: #e5e7eb; }      /* light grey */
+.starCount  { color: $gray-dark; font-size: $font-size-sm; }
+
+/* Description */
+.descriptionContainer { display: flex; flex-direction: column; gap: $spacing-sm; }
+
+.descriptionTitle {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.description {
+  margin: 0;
+  color: $gray-dark;
+  line-height: 1.65;
+}
+
+/* CTA */
+.actionContainer { margin-top: $spacing-sm; }
+
+.addToCartButton {
+  @include button-reset;
+  @include smooth-transition;
+  @include focus-ring;
+
+  display: block;
+  margin: 0 auto; /* centered */
+  padding: $spacing-md $spacing-xl;
+  min-width: 200px;
+  border-radius: $border-radius-lg;
+  background-color: #1f8cb8;
+  color: $white;
+  font-weight: $font-weight-semibold;
+  border: none;
+  cursor: pointer;
+
+  &:hover  { filter: brightness(0.95); transform: translateY(-1px); }
+  &:active { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .addToCartButton { transition: none; transform: none !important; }
+}

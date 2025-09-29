@@ -1,0 +1,37 @@
+// Styles for the individual product row in the left rail
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+/* grid row with thumbnail, title, chevron */
+.row {
+  display: grid;
+  grid-template-columns: 78px 1fr auto;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  background: transparent;
+  transition: background .2s ease-in-out;
+
+  &:hover { background: rgba(0,0,0,.03); }
+  &.active { background: rgba(0,0,0,.05); }
+}
+
+.thumb {
+  width: 78px;
+  height: 78px;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  background: $white;
+
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+.titleBtn { width: 100%; text-align: left; }
+.title {
+  font-size: $font-size-base;
+  line-height: 1.25;
+  color: $black;
+}
+
+.seoBlock { display: none; } /* content still in DOM for SEO */

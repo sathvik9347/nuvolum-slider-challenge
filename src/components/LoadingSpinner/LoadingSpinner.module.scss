@@ -1,0 +1,65 @@
+// Styles for loading spinner component
+
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.loadingContainer {
+  @include flex-center;
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  min-height: 200px;
+}
+
+.spinner {
+  border-radius: $border-radius-full;
+  border: 3px solid $gray-light;
+  border-top: 3px solid $primary;
+  animation: spin 1s linear infinite;
+  
+  &.small {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+  
+  &.medium {
+    width: 40px;
+    height: 40px;
+  }
+  
+  &.large {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
+}
+
+.spinnerInner {
+  width: 100%;
+  height: 100%;
+}
+
+.loadingMessage {
+  margin: 0;
+  font-size: $font-size-base;
+  color: $gray-medium;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border: 3px solid $gray-medium;
+  }
+}

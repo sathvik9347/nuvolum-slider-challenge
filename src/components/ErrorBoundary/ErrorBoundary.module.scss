@@ -1,0 +1,100 @@
+// Styles for error boundary component
+
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.errorContainer {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $spacing-lg;
+  background-color: $gray-light;
+}
+
+.errorContent {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-lg;
+  max-width: 500px;
+  padding: $spacing-xl;
+  background-color: $white;
+  border-radius: $border-radius-xl;
+  @include card-elevation(2);
+  text-align: center;
+}
+
+.errorTitle {
+  margin: 0;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $black;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $gray-dark;
+}
+
+.errorDetails {
+  width: 100%;
+  margin: $spacing-md 0;
+  
+  summary {
+    cursor: pointer;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-sm;
+  }
+  
+  code {
+    display: block;
+    padding: $spacing-md;
+    background-color: $gray-light;
+    border-radius: $border-radius-md;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: $font-size-sm;
+    word-break: break-word;
+  }
+}
+
+.errorActions {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.retryButton,
+.refreshButton {
+  @include button-reset;
+  @include smooth-transition;
+  @include focus-ring;
+  
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+}
+
+.retryButton {
+  background-color: $primary;
+  color: $white;
+  border: 2px solid $primary;
+  
+  &:hover {
+    background-color: $primary-dark;
+    border-color: $primary-dark;
+  }
+}
+
+.refreshButton {
+  background-color: transparent;
+  color: $gray-dark;
+  border: 2px solid $gray-medium;
+  
+  &:hover {
+    background-color: $gray-light;
+    border-color: $gray-dark;
+  }
+}

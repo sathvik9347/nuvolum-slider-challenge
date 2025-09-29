@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.filters {
+  background: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  position: sticky;
+  top: 72px; /* below header */
+  align-self: start;
+}
+
+.title {
+  margin: 0 0 $spacing-md 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.block { margin-bottom: $spacing-lg; }
+.label { font-weight: $font-weight-medium; margin-bottom: $spacing-sm; display: block; }
+
+.input, .num, .select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: $border-radius-md;
+  border: 1px solid rgba(0,0,0,.15);
+  background: #fafafa;
+}
+
+.rangeRow { display: flex; align-items: center; gap: $spacing-sm; }
+.num { width: 100%; }
+.dash { color: #888; }
+
+.checks { display: grid; gap: 6px; }
+.check { display: flex; align-items: center; gap: 8px; font-size: $font-size-sm; }
+
+.range { width: 100%; }
+.hint { color: #666; font-size: $font-size-xs; margin-top: 4px; }

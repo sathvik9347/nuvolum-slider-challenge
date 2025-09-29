@@ -1,0 +1,50 @@
+/* src/components/ProductSlider/ProductSlider.module.scss */
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+/* The whole rail (left column) */
+.sliderSection {
+  width: 100%;
+  /* keep the rail slim on larger screens */
+  @include tablet-up { max-width: 360px; }
+  @include desktop-up { max-width: 340px; }
+}
+
+/* Keep the rail visible as you scroll the page */
+.sliderContainer {
+  position: sticky;
+  top: 96px;                 /* adjust to your header height */
+  width: 100%;
+  padding: $spacing-md 0;
+
+  @include mobile-only {
+    position: static;        /* no sticky on small screens */
+    padding: $spacing-sm 0;
+  }
+}
+
+/* Vertical list with its own scroll */
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;                /* rail has no side padding; the slide handles its own */
+  -webkit-overflow-scrolling: touch;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+
+  /* Subtle scrollbar styling (optional) */
+  &::-webkit-scrollbar { width: 8px; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.12);
+    border-radius: 999px;
+  }
+}
+
+/* Accessibility */
+.slider:focus-within { outline: none; }
